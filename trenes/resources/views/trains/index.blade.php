@@ -8,13 +8,13 @@
 </head>
 <body>
     <a href="{{route('trains.create')}}">Crear tren</a>
-    <table>
+    <table border="1px">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Passengers</th>
-                <th>Year</th>
-                <th>Train_type_id</th>
+                <th>Nombre</th>
+                <th>Pasajeros</th>
+                <th>Año</th>
+                <th>Tipo de tren</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
                     <td>{{ $train->name }}</td>
                     <td>{{ $train->passengers }}</td>
                     <td>{{ $train->year }}</td>
-                    <td>{{ $train->train_types_id }}</td>
+                    <td>{{ $train->train_type->type }}</td>
                 </tr>
             @endforeach
         </tbody>

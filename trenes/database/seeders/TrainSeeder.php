@@ -18,14 +18,14 @@ class TrainSeeder extends Seeder
                 'name' => 'Alvia',
                 'passengers' => '160',
                 'year' => '2000',
-                'train_types_id' => 1
+                'train_type_id' => 1
 
             ],
             [
                 'name' => 'Renfe',
                 'passengers' => '220',
                 'year' => '2007',
-                'ticket_type_id' => 2
+                'train_type_id' => 2
             ]
         ]);
     }

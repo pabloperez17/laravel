@@ -26,7 +26,8 @@ class TrainController extends Controller
      */
     public function create()
     {
-        //
+        return view('trains/create', ['tickets' => Ticket::all()]);
+
     }
 
     /**
