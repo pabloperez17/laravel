@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TrainType;
+use App\Models\Train;
 
 class TrainTypeController extends Controller
 {
@@ -12,7 +13,8 @@ class TrainTypeController extends Controller
      */
     public function index()
     {
-        //
+        $trainTypes =TrainType::all();
+        return view('trainTypes/index',['trainTypes'=>$trainTypes]);
     }
 
     /**
@@ -20,7 +22,7 @@ class TrainTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('trainTypes/create', ['trainTypes' => TrainType::all()]);
     }
 
     /**
@@ -28,7 +30,9 @@ class TrainTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type = new TrainType;
+        $type->type = $request->input('type');
+        $type->save();
     }
 
     /**

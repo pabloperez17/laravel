@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TicketType;
+use App\Models\Ticket;
 
 class TicketTypeController extends Controller
 {
@@ -12,7 +13,12 @@ class TicketTypeController extends Controller
      */
     public function index()
     {
-        //
+        $ticketTypes = TicketType::all();
+
+        return view(
+            'ticketTypes/index',
+            ['ticketTypes' => $ticketTypes]
+        );
     }
 
     /**
@@ -20,7 +26,7 @@ class TicketTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('ticketTypes/create', ['ticket_types' =>TicketType::all()]);
     }
 
     /**
@@ -28,7 +34,11 @@ class TicketTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type = new TicketType;
+        $type->type = $request->input('type');
+        $type->save();
+
+        return redirect('ticketTypes');
     }
 
     /**

@@ -8,13 +8,13 @@
 </head>
 <body>
     <a href="{{route('tickets.create')}}">Crear ticket</a>
-    <table>
+    <table border="1px">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Price</th>
-                <th>Train_id</th>
-                <th>Ticket_type_id</th>
+                <th>Fecha</th>
+                <th>Precio</th>
+                <th>Nombre del tren</th>
+                <th>Tipo de ticket</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +22,8 @@
                 <tr>
                     <td>{{ $ticket->date }}</td>
                     <td>{{ $ticket->price }}</td>
-                    <td>{{ $ticket->train_id }}</td>
-                    <td>{{ $ticket->ticket_types_id }}</td>
+                    <td>{{ $ticket->train->name }}</td>
+                    <td>{{ $ticket->ticket_type->type }}</td>
                 </tr>
             @endforeach
         </tbody>

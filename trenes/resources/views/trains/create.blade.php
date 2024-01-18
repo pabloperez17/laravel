@@ -9,19 +9,23 @@
 <body>
     <form action="{{ route('trains.store') }}" method="post">
         @csrf
-        <label>Name</label>
+        <label>Nombre</label>
         <input type="text" name="name">
-        <label>Passengers</label>
+        <br><br>
+        <label>Pasajeros</label>
         <input type="number" name="passengers">
-        <label>Year</label>
+        <br><br>
+        <label>Año</label>
         <input type="number" name="year">
-        <label>Train_type_id</label>
+        <br><br>
+        <label>Tipo de tren</label>
         <select name="train_type_id">
-            @foreach ($ as $train_type_id)
-                <option value="{{ $train_type_id->id }}">{{ $train_type_id->nombre_artista }}
+            @foreach ($train_types as $train_type)
+                <option value="{{ $train_type->id }}">{{ $train_type->type }}
                 </option>
             @endforeach
         </select>
+        <br><br>
         <input type="submit" value="Crear">
     </form>
 

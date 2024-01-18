@@ -7,16 +7,17 @@
     <title>Train Type Index</title>
 </head>
 <body>
-    <table>
+    <a href="{{route('trainTypes.create')}}">Crear tren</a>
+    <table border="1px">
         <thead>
             <tr>
-                <th>Type</th>
+                <th>Tipo de tren</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($types as $type)
+            @foreach ($trainTypes as $trainType)
                 <tr>
-                    <td>{{ $type->type }}</td>
+                    <td>{{ $trainType->type }}</td>
                 </tr>
             @endforeach
         </tbody>

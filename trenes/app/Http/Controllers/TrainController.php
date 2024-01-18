@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Train;
+use App\Models\TrainType;
 
 class TrainController extends Controller
 {
@@ -26,7 +27,7 @@ class TrainController extends Controller
      */
     public function create()
     {
-        return view('trains/create', ['tickets' => Ticket::all()]);
+        return view('trains/create', ['trains' => Train::all(), 'train_types'=>TrainType::all()]);
 
     }
 
@@ -35,7 +36,15 @@ class TrainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $train = new Train;
+        $train->name = $request->input('name');
+        $train->passengers = $request->input('passengers');
+        $train->year = $request->input('year');
+        $train->train_type_id = $request->input('train_type_id');
+        $train->save();
+
+
+        return redirect('trains');
     }
 
     /**

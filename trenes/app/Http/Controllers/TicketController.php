@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\TicketType;
+use App\Models\Train;
 
 class TicketController extends Controller
 {
@@ -25,7 +27,8 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('tickets/create', ['tickets' => Ticket::all(),'train_names' =>Train::all(),'ticket_types' =>TicketType::all()]);
+
     }
 
     /**
@@ -33,7 +36,14 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ticket = new Ticket;
+        $ticket->date = $request->input('date');
+        $ticket->price = $request->input('price');
+        $ticket->train_id = $request->input('train_name');
+        $ticket->ticket_type_id = $request->input('ticket_type_id');
+        $ticket->save();
+
+        return redirect('tickets');
     }
 
     /**

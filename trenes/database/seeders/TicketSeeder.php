@@ -18,13 +18,13 @@ class TicketSeeder extends Seeder
                 'date' => now(),
                 'price' => '40',
                 'train_id' => 2,
-                'ticket_types_id' => 1
+                'ticket_type_id' => 1
             ],
             [
                 'date' => now(),
                 'price' => '65',
                 'train_id' => 1,
-                'ticket_types_id' => 2
+                'ticket_type_id' => 2
             ]
         ]);
     }

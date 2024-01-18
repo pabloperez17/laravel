@@ -7,16 +7,17 @@
     <title>Ticket Type Index</title>
 </head>
 <body>
-    <table>
+    <a href="{{route('ticketTypes.create')}}">Crear tipo de ticket</a>
+    <table border="1px">
         <thead>
             <tr>
-                <th>Type</th>
+                <th>Tipo de ticket</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($types as $type)
+            @foreach ($ticketTypes as $ticketType)
                 <tr>
-                    <td>{{ $type->type }}</td>
+                    <td>{{ $ticketType->type }}</td>
                 </tr>
             @endforeach
         </tbody>
