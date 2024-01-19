@@ -52,7 +52,7 @@ class TrainController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('trains/show', ['train' => Train::find($id)]);
     }
 
     /**
