@@ -76,6 +76,7 @@ class TicketTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        TicketType::find($id)->delete();
+        return redirect('ticketTypes');
     }
 }
